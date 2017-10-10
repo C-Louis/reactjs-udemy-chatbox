@@ -7,7 +7,7 @@ class Message extends React.Component {
         //return jsx
         return (
             <p className="user-message">
-                Pseudo: Mon super message!
+                {this.props.pseudo}: Mon super message!
             </p>
         )
     }
