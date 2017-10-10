@@ -24,6 +24,11 @@ class Message extends React.Component {
     render() {
         return this.preRender(this.props.isUser(this.props.details.pseudo));
     }
+
+    //Check if props are correct
+    static propTypes = {
+        details: React.PropTypes.object.isRequired
+    };
 }
 
 //To export component
