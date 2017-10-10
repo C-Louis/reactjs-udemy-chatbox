@@ -29,6 +29,11 @@ class App extends React.Component {
         const timestamp = Date.now();
         //Get message
         messages[`message-${timestamp}`] = message;
+        //Delete older message if more than 10 (To delete from state : use =null)
+        Object
+            .keys(messages)
+            .slice(0, -10)
+            .map(key => messages[key] = null);
         //Update state
         this.setState({ messages });
     };
