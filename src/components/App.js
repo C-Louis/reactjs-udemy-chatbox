@@ -2,6 +2,7 @@
 import React from 'react';
 import Formulaire from './Formulaire';
 import Message from './Message';
+import base from '../firebase';
 
 //create new component
 class App extends React.Component {
@@ -10,6 +11,15 @@ class App extends React.Component {
     state = {
         messages: {}
     };
+
+    //Before component is mounted, check if there are messages to display
+    componentWillMount() {
+        //Firebase structure
+        this.ref = base.syncState('/', {
+            context: this,
+            state: 'messages'
+        });
+    }
 
     //Add a message to the state
     addMessage = message => {
