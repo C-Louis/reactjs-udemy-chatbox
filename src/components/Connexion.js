@@ -8,7 +8,9 @@ class Connexion extends React.Component {
         event.preventDefault();
         //Get the pseudo thanks to the input REF (faster for React)
         const pseudo = this.pseudoInput.value;
-        //Change url
+        //Change url (CONTEXT allows a parent file to pass things to all its child files -> useful with 'transitionTo')
+        // 'transitionTo' navigates to another page
+        this.context.router.transitionTo(`/pseudo/${pseudo}`);
     };
 
     render() {
@@ -26,6 +28,10 @@ class Connexion extends React.Component {
                 </form>
             </div>
         )
+    }
+    //Get context
+    static contextTypes = {
+        router: React.PropTypes.object
     }
 }
 
